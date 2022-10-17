@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Handi a dit</h1>
+    <p>Bienvenue sur la page d'accueil du site Handi a dit !</p>
+
+    <h2>{{ question.question_text }}</h2>
+    <ul>
+        {% for choice in question.choice_set.all %}
+        <li>{{ choice.choice_text }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

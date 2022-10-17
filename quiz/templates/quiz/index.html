@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Handi a dit</h1>
+    <p>Bienvenue sur la page d'accueil du site Handi a dit !</p>
+
+    <h2>Derniers quiz</h2>
+    {% if latest_question_list %}
+        <ul>
+        {% for question in latest_question_list %}
+        <li><a href="{% url 'quiz:detail' question.id %}">{{ question.question_text }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun quiz disponible.</p>
+    {% endif %}
+{% endblock %}
